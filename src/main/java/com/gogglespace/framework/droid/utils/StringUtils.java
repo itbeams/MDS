@@ -52,7 +52,22 @@ public class StringUtils {
         }
         return retVal;
     }
-
+    /**
+     * Takes String object and returns long value, -1 if object is null, or object has null as a
+     * value.
+     * @param obj
+     * @see StringUtils -> getString(obj)
+     * @return long - long value
+     * */
+    public static long getLong(Object obj) {
+        long retVal = -1;
+        String longStr = StringUtils.getString(obj);
+        if (longStr.length() > 0 ) {
+            retVal = Long.parseLong(longStr);
+        }
+        return retVal;
+    }
+    
     /**
      * Check if passed String has some value (note null reference or null String value will be discarded
      * for value check)
