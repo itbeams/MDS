@@ -2,8 +2,6 @@ package com.gogglespace.framework.droid.utils;
 
 import java.util.Locale;
 
-import android.content.Context;
-
 /**
  * A common utility operations 
  * Created by Shahid Nawaz on 2/3/2015.
@@ -87,31 +85,6 @@ public class StringUtils {
        return getString(str).length();
     }
 
-    /**
-     * This utility method is used to extract value from a json
-     * @param strValue - json string
-     * @param identifier - attribute / identified to be searched for the value
-     * @return String
-     * */
-    public static String getAttributeValue(String strValue, String identifier) {
-        String tmp = strValue;
-        int index = tmp.indexOf(identifier);
-        tmp = tmp.substring(index+identifier.length());
-        int commaIndex = tmp.indexOf(",");
-        tmp = tmp.substring(0, commaIndex);
-
-        // trim starting double or single quote
-        if(tmp.startsWith("\"") || tmp.startsWith("'")) {
-            tmp =  tmp.substring(1);
-        }
-        // trim ending double or single quote
-        if(tmp.endsWith("\"") || tmp.endsWith("'")) {
-           tmp = tmp.substring(0,tmp.length()-1);
-        }
-
-
-        return tmp;
-    }
 	public static int getInt(String string) {
 		return Integer.parseInt(string);
 	}
@@ -167,28 +140,6 @@ public class StringUtils {
 	}
 
 	/**
-	 * Get minimum length formatted error message
-	 * @param context - caller context
-	 * @param minLength - minimum length
-	 * @return String - error message
-	 * */
-	public static String getMinLenthErrMsg(Context context, int minLength) {
-		String noneFormattedLabel = "";
-		return getFormatted(noneFormattedLabel,  Integer.toString(minLength));
-	}
-
-	/**
-	 * Get required error message
-	 * @param context - caller context
-	 * @return String - error message
-	 * */
-	public static String getRequiredErrMsg(Context context) {
-		//SDK Bug in Android error message display - cuts text sometime by 6 ending characters
-		final String spaceFiller = "      "; // setError message
-		return "";
-	}
-
-	/**
 	 * Get formatted value
 	 * @param strToFormat - message to format
 	 * @param formatValue - message place holder value
@@ -207,6 +158,4 @@ public class StringUtils {
 		String strData = getString(str);
 		return strData.length()>maxCharacters?strData.substring(0, maxCharacters):strData;
 	}
-
-
 }
