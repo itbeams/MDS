@@ -1,5 +1,5 @@
 # MDS
-Multiple Data source Droid Persistence Framework
+Multiple Data Source Droid Persistence Framework
 
 This framework is built using SQLite and SQLCipher - zetetic @see https://www.zetetic.net/sqlcipher/
 
